@@ -35,9 +35,12 @@ services:
       - ./api/:/var/www/html
 
   db:
-    build:
-      # context: .
-      # dockerfile: ./docker/mysql/Dockerfile
+    # dockerfileでplatformを指定していたが、mirationエラーを吐いたため、記載場所を変更
+    # build:
+    #   context: .
+    #   dockerfile: ./docker/mysql/Dockerfile
+    image: mysql:8.0
+    platform: linux/x86_64
     ports:
       - ${DB_PORT}:3306
     environment:
