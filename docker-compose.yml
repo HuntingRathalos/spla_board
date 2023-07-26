@@ -24,7 +24,7 @@ services:
 
   nginx:
     build:
-      context: .
+      context: 
       dockerfile: ./docker/nginx/Dockerfile
     ports:
       - ${WEB_PORT}:80
