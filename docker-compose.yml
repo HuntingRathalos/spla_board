@@ -66,3 +66,6 @@ services:
       - ./front:/front:cached
       # - nuxtjs-node-modules:/front/node_modules
       # ↑ 次回起動後にコメントアウトを解除
+    environment:
+      - CHOKIDAR_USEPOLLING=true # ホットリロードの設定
+      - HOST=0.0.0.0

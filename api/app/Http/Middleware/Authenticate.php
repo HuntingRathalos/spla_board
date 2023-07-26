@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
+use Illuminate\Http\Response;
 
 class Authenticate extends Middleware
 {
@@ -14,6 +15,11 @@ class Authenticate extends Middleware
      */
     protected function redirectTo($request)
     {
+        // 認証されていないときに403エラーを起こす
+        if ($request->is('api/*')) {
+            return response()->error(Response::HTTP_OK, '許可されていません。一度ログアウトしてから再度お試しください。');
+        }
+
         if (! $request->expectsJson()) {
             return route('login');
         }

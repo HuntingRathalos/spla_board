@@ -1,4 +1,5 @@
-FROM node:18-slim
+# FROM node:18-slim
+FROM node:16-alpine3.18
 
 # RUN npm install -g npm@latest nuxi nuxt3
 

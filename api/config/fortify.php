@@ -61,7 +61,12 @@ return [
     |
     */
 
-    'home' => RouteServiceProvider::HOME,
+    // 'home' => RouteServiceProvider::HOME,
+    'home' => 'http://localhost:3000',
+
+    'redirects' => [
+        'logout' => 'http://localhost:3000'
+    ],
 
     /*
     |--------------------------------------------------------------------------
