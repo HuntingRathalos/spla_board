@@ -24,7 +24,7 @@ services:
 
   nginx:
     build:
-      context: 
+      context: .
       dockerfile: ./docker/nginx/Dockerfile
     ports:
       - ${WEB_PORT}:80
@@ -37,7 +37,7 @@ services:
   db:
     build:
       context: .
-      dockerfile: ./docker/mysql/Dockerfile
+      # dockerfile: ./docker/mysql/Dockerfile
     ports:
       - ${DB_PORT}:3306
     environment:
