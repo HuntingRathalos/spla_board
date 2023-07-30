@@ -2,6 +2,6 @@
   <div>
     <p>hello</p>
     <!-- <NuxtWelcome /> -->
-    <p></p>
+    <NuxtPage />
   </div>
 </template>

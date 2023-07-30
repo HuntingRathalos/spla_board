@@ -1,0 +1,35 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "server: nuxt",
+      "runtimeExecutable": "npm",
+      // "runtimeArgs": ["run-script", "debug"],
+      // "preLaunchTask": "build",
+      "program": "../front",
+      // "args": ["dev"],
+      "console": "integratedTerminal",
+      "sourceMaps": true
+    },
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Launch Chrome",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}"
+      // "pathMapping": {
+      //   "http://localhost:3000": "${workspaceFolder}"
+      // }
+    }
+  ],
+  "compounds": [
+    {
+      "name": "fullstack: nuxt",
+      "configurations": ["server: nuxt", "Launch Chrome"]
+    }
+  ]
+}
