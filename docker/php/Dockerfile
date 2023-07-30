@@ -12,4 +12,7 @@ RUN apt-get update && \
     vim \
     && docker-php-ext-install pdo_mysql bcmath
 
+RUN pecl install xdebug \
+    && docker-php-ext-enable xdebug
+
 WORKDIR /var/www/html
