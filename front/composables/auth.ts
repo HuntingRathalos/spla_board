@@ -7,9 +7,8 @@ export const useAuth = () => {
   const store = useAuthStore();
 
   const csrfEndPoint = config.public.auth.endpoint.csrf;
-  const loginEndPoint = config.public.auth.endpoint.login;
+  const loginEndPoint = config.public.auth.endpoint.logoutout;
   const logoutEndPoint = config.public.auth.endpoint.logout;
-  console.log("testです");
   const userEndPoint = config.public.auth.endpoint.user;
   // const registerEndPoint = config.public.auth.endpoint.register;
 
