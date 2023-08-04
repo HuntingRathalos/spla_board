@@ -40,12 +40,16 @@ export const useAuth = () => {
   };
 
   const register = async (regisrationInfo: RegistrationInfo) => {
+    await useApiFetch(csrfEndPoint, { method: 'GET' });
+
     const register = await useApiFetch('/api/register', {
       method: 'POST',
       body: regisrationInfo,
     });
 
-    await store.updateUser();
+    if (!register.error.value) {
+      await store.updateUser();
+    }
 
     return register;
   };
