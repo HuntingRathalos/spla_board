@@ -9,6 +9,7 @@ export const useAuth = () => {
   const csrfEndPoint = config.public.auth.endpoint.csrf;
   const loginEndPoint = config.public.auth.endpoint.login;
   const logoutEndPoint = config.public.auth.endpoint.logout;
+
   const userEndPoint = config.public.auth.endpoint.user;
   // const registerEndPoint = config.public.auth.endpoint.register;
 
