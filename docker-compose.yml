@@ -3,7 +3,7 @@ version: "3.8"
 volumes:
   mysql-volume:
   # nuxtjs-node-modules:
-  laravel-vendor:
+  # laravel-vendor:
 
 services:
   api:
@@ -12,7 +12,7 @@ services:
       dockerfile: ./docker/php/Dockerfile
     volumes:
       - ./api/:/var/www/html:cached
-      - laravel-vendor:/var/www/html/vendor
+      # - laravel-vendor:/var/www/html/vendor
     tty: true
     environment:
       - DB_CONNECTION=mysql
@@ -51,6 +51,19 @@ services:
       TZ: "Asia/Tokyo"
     volumes:
       - mysql-volume:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOSTS=db
+      # - PMA_USER=test
+      # - PMA_PASSWORD=test
+    ports:
+      - 4040:80
+    volumes:
+      - ./docker/phpmyadmin/sessions:/sessions
+
   front:
     build:
       context: .

@@ -6,9 +6,10 @@ export const useAuth = () => {
   const config = useRuntimeConfig();
   const store = useAuthStore();
 
-  const csrfEndPoint = config.public.auth.endpoint.csrfss;
-  const loginEndPoint = config.public.auth.endpoint.logoutout;
-  const logoutEndPoint = config.public.auth.endpoint.login;
+  const csrfEndPoint = config.public.auth.endpoint.csrf;
+  const loginEndPoint = config.public.auth.endpoint.login;
+  const logoutEndPoint = config.public.auth.endpoint.logout;
+
   const userEndPoint = config.public.auth.endpoint.user;
   // const registerEndPoint = config.public.auth.endpoint.register;
 
@@ -40,12 +41,16 @@ export const useAuth = () => {
   };
 
   const register = async (regisrationInfo: RegistrationInfo) => {
+    await useApiFetch(csrfEndPoint, { method: 'GET' });
+
     const register = await useApiFetch('/api/register', {
       method: 'POST',
       body: regisrationInfo,
     });
 
-    await store.updateUser();
+    if (!register.error.value) {
+      await store.updateUser();
+    }
 
     return register;
   };

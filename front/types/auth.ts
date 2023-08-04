@@ -1,7 +1,7 @@
 type User = {
   id: number;
   name: string;
-  email: number;
+  email: string;
   email_verified_at: string;
   two_factor_confirmed_at: string;
   two_factor_recovery_codes: string;
