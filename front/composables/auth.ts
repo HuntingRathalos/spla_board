@@ -6,7 +6,7 @@ export const useAuth = () => {
   const config = useRuntimeConfig();
   const store = useAuthStore();
 
-  const csrfEndPoint = config.public.auth.endpoint.csrf;
+  const csrfEndPoint = config.public.auth.endpoint.csrfss;
   const loginEndPoint = config.public.auth.endpoint.logoutout;
   const logoutEndPoint = config.public.auth.endpoint.login;
   const userEndPoint = config.public.auth.endpoint.user;
